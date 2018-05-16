@@ -3,7 +3,8 @@
   "extends": [
     "airbnb",
     "prettier",
-    "prettier/react"
+    "prettier/react",
+    "plugin:flowtype/recommended"
   ],
   "rules": {
     "react/react-in-jsx-scope": [
@@ -27,6 +28,7 @@
     ]
   },
   "plugins": [
+    "flowtype",
     "prettier",
     "react",
     "jsx-a11y"
