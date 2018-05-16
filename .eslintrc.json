@@ -27,7 +27,6 @@
     ]
   },
   "plugins": [
-    "flowtype",
     "prettier",
     "react",
     "jsx-a11y"

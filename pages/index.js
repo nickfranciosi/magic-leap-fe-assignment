@@ -13,6 +13,6 @@ type IndexProps = {
 
 export default ({ foo }: IndexProps) => (
   <div>
-    <Title>{foo}</Title>
+    <Title>{foo} yes</Title>
   </div>
 );
