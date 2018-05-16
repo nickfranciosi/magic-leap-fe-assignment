@@ -7,9 +7,13 @@
     "dev": "next",
     "build": "next build",
     "start": "next start",
+    "flow": "flow",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
+  "files.associations": {
+    "*.js": "flow"
+  },
   "author": "",
   "license": "ISC",
   "dependencies": {
@@ -20,13 +24,17 @@
     "styled-components": "^3.2.6"
   },
   "devDependencies": {
+    "babel-eslint": "^8.2.3",
+    "babel-preset-flow": "^6.23.0",
     "eslint": "^4.19.1",
     "eslint-config-airbnb": "^16.1.0",
     "eslint-config-prettier": "^2.9.0",
+    "eslint-plugin-flowtype": "^2.46.3",
     "eslint-plugin-import": "^2.11.0",
     "eslint-plugin-jsx-a11y": "^6.0.3",
     "eslint-plugin-prettier": "^2.6.0",
     "eslint-plugin-react": "^7.8.2",
+    "flow-bin": "^0.72.0",
     "prettier": "1.12.1"
   }
 }

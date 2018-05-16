@@ -1,3 +1,5 @@
+// @flow
+import React from 'react';
 import styled from 'styled-components';
 
 const Title = styled.h1`
@@ -5,8 +7,12 @@ const Title = styled.h1`
   font-size: 50px;
 `;
 
-export default () => (
+type IndexProps = {
+  foo: string
+};
+
+export default ({ foo }: IndexProps) => (
   <div>
-    <Title>Nice home pages</Title>
+    <Title>{foo}</Title>
   </div>
 );
