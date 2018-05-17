@@ -1,6 +1,7 @@
 // @flow
 import React from 'react';
-import 'isomorphic-unfetch';
+import { connect } from 'react-redux';
+import { getProducts } from '../store';
 import ProductListing from '../components/productListing';
 
 type IndexProps = {
@@ -15,11 +16,18 @@ const IndexPage = ({ products }: IndexProps) => (
   </div>
 );
 
-IndexPage.getInitialProps = async () => {
-  // eslint-disable-next-line no-undef
-  const res = await fetch('http://demo7475333.mockable.io/spaceships');
-  const { products } = await res.json();
-  return { products };
+IndexPage.getInitialProps = async ({ store, isServer }) => {
+  if (isServer) {
+    await store.dispatch(getProducts());
+  }
+  const { products } = await store.getState();
+  const hasProductsLoaded = products.length;
+
+  if (!hasProductsLoaded) {
+    await store.dispatch(getProducts());
+  }
 };
 
-export default IndexPage;
+const mapStateToProps = ({ products }) => ({ products });
+
+export default connect(mapStateToProps)(IndexPage);
