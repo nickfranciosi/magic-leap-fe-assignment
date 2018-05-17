@@ -1,5 +1,6 @@
 import Document, { Head, Main, NextScript } from 'next/document';
 import { ServerStyleSheet } from 'styled-components';
+import Background from '../components/background';
 
 export default class MyDocument extends Document {
   static getInitialProps({ renderPage }) {
@@ -19,6 +20,7 @@ export default class MyDocument extends Document {
           {this.props.styleTags}
         </Head>
         <body>
+          <Background />
           <Main />
           <NextScript />
         </body>
