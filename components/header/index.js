@@ -1,5 +1,6 @@
 // @flow
 import React from 'react';
+import Link from 'next/link';
 import styled from 'styled-components';
 import { Container } from '../layout';
 import colors from '../../styles/colors';
@@ -18,10 +19,24 @@ const HeaderWrapper = styled.header`
   z-index: 4;
 `;
 
+const SiteLogo = styled.img`
+  width: 75px;
+  display: inline;
+`;
+
+const SiteTitle = styled.h1`
+  display: inline;
+`;
+
 const Header = ({ siteTitle }: HeaderProps) => (
   <HeaderWrapper>
     <Container>
-      <h1>{siteTitle}</h1>
+      <Link href="/">
+        <div>
+          <SiteLogo src="/static/images/Watto.png" alt="Watto" />
+          <SiteTitle>{siteTitle}</SiteTitle>
+        </div>
+      </Link>
     </Container>
   </HeaderWrapper>
 );

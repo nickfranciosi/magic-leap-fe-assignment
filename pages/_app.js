@@ -5,9 +5,10 @@ import withRedux from 'next-redux-wrapper';
 import { initStore } from '../store';
 import Header from '../components/header';
 import baseStyles from '../styles/baseStyles';
+import Background from '../components/background';
 
 export default withRedux(initStore)(
-  class WattoApp extends App {
+  class MagicLeapApp extends App {
     static async getInitialProps({ Component, ctx }) {
       return {
         pageProps: Component.getInitialProps
@@ -21,6 +22,7 @@ export default withRedux(initStore)(
       baseStyles();
       return (
         <Container>
+          <Background />
           <Header siteTitle="Watto's Emporium" />
           <Provider store={store}>
             <Component {...pageProps} />
