@@ -12,8 +12,7 @@ const Wrapper = styled.div`
   border: 2px solid ${colors.callout};
   position: relative;
   cursor: pointer;
-  background: url('/static/images/products/Twin Ion Engine Starfighter.jpg')
-    no-repeat;
+  background: url('/static/images/products/${({ src }) => src}.jpg') no-repeat;
   background-size: cover;
 `;
 
@@ -29,7 +28,7 @@ const Title = styled.h2`
 
 export default ({ name }: Product) => (
   <Link prefetch href={`/shop?name=${name}`} as={`/shop/${name}`}>
-    <Wrapper>
+    <Wrapper src={name}>
       <Title>{name}</Title>
     </Wrapper>
   </Link>
