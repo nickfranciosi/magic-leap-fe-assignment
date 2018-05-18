@@ -4,6 +4,7 @@ import Link from 'next/link';
 import styled from 'styled-components';
 import { Container } from '../layout';
 import AvatarLogo from '../avatarLogo';
+import Cart from '../cart';
 import colors from '../../styles/colors';
 import fonts from '../../styles/fonts';
 
@@ -51,12 +52,8 @@ const Header = ({ siteTitle, cart, total }: HeaderProps) => (
             <SiteTitle>{siteTitle}</SiteTitle>
           </Link>
         </FlexContainer>
-        <div>
-          {total > 0 && `$${total} credits`}
-          <Link href="/checkout">
-            <i>{cart.length > 0 && cart.length} cart</i>
-          </Link>
-        </div>
+        {/* TODO: Shoul maybe should expost cart data to cart component directly */}
+        <Cart itemCount={cart.length} total={total} />
       </FlexContainer>
     </Container>
   </HeaderWrapper>

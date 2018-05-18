@@ -14,3 +14,10 @@ export const getProductsInCart = createSelector(
 export const getCartTotal = createSelector([getProductsInCart], products =>
   products.reduce((acc, curr) => acc + formatPrice(curr.price), 0)
 );
+
+export const isProductInCart = productName =>
+  createSelector(
+    [getProductsInCart],
+    products =>
+      products.filter(product => product.name === productName).length > 0
+  );
