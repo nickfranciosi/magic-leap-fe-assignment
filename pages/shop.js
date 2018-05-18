@@ -1,13 +1,34 @@
 // @flow
 import React from 'react';
+import styled from 'styled-components';
+import { Container } from '../components/layout';
 import { getProducts } from '../store';
 
 type ShopPagePros = {
   product: Product
 };
 
+const ProductHero = styled.div`
+  height: 400px;
+  width: 50vw;
+  max-width: 800px;
+  background: url('${({ src }) => src}') no-repeat;
+  background-size: cover;
+`;
+
+const ProductTitle = styled.h2`
+  color: #fff;
+  font-family: 'Raleway', Helvetica, sans-serif;
+`;
+
 const ShopPage = ({ product }: ShopPagePros) => (
-  <div>{product.name} detail page</div>
+  <div>
+    <ProductHero src={`/static/images/products/${product.name}.jpg`}>
+      <Container>
+        <ProductTitle>{product.name}</ProductTitle>
+      </Container>
+    </ProductHero>
+  </div>
 );
 
 ShopPage.getInitialProps = async ({ store, isServer, query: { name } }) => {

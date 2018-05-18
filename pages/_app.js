@@ -23,7 +23,7 @@ export default withRedux(initStore)(
       return (
         <Container>
           <Background />
-          <Header siteTitle="Watto's Emporium" />
+          <Header siteTitle="Watto's Spaceship Emporium" />
           <Provider store={store}>
             <Component {...pageProps} />
           </Provider>

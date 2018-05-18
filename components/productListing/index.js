@@ -4,20 +4,27 @@ import Link from 'next/link';
 import styled from 'styled-components';
 import colors from '../../styles/colors';
 
-const Title = styled.h2`
-  color: ${colors.callouText};
-  size: 23px;
-`;
-
 const Wrapper = styled.div`
   border: ${colors.backgroundMain};
   width: 100%;
   height: auto;
-  min-height: 40px;
-  border: 1px solid ${colors.border};
-  display: flex:
-  align-items: center;
-  justify-content: center;
+  min-height: 250px;
+  border: 2px solid ${colors.callout};
+  position: relative;
+  cursor: pointer;
+  background: url('/static/images/products/Twin Ion Engine Starfighter.jpg')
+    no-repeat;
+  background-size: cover;
+`;
+
+const Title = styled.h2`
+  color: ${colors.callout};
+  font-family: 'Raleway', Helvetica, sans-serif;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  padding-left: 8px;
+  size: 23px;
 `;
 
 export default ({ name }: Product) => (

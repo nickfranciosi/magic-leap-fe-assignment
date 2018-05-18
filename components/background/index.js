@@ -23,13 +23,13 @@ const BgImage = styled.div`
 const BgLeftImage = styled(BgImage)`
   left: 0;
   background-position: left center;
-  background-image: url('static/images/bg_stars_left.jpg');
+  background-image: url('/static/images/bg_stars_left.jpg');
 `;
 
 const BgRightImage = styled(BgImage)`
   right: 0;
   background-position: right center;
-  background-image: url('static/images/bg_stars_right.jpg');
+  background-image: url('/static/images/bg_stars_right.jpg');
 `;
 
 const Background = () => (
