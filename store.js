@@ -12,7 +12,9 @@ const exampleInitialState = {
 export const actionTypes = {
   LOADING_PRODUCTS: 'LOADING_PRODUCTS',
   PRODUCTS_RECEIVED: 'PRODUCTS_RECEIVED',
-  LOAD_PRODUCTS_FAILED: 'LOAD_PRODUCTS_FAILED'
+  LOAD_PRODUCTS_FAILED: 'LOAD_PRODUCTS_FAILED',
+  ADD_TO_CART: 'ADD_TO_CART',
+  REMOVE_FROM_CART: 'REMOVE_FROM_CART'
 };
 
 // REDUCERS
@@ -35,6 +37,16 @@ export const reducer = (state = exampleInitialState, action) => {
         loading: false,
         error: action.payload
       };
+    case actionTypes.ADD_TO_CART:
+      return {
+        ...state,
+        cart: [...state.cart, action.payload]
+      };
+    case actionTypes.REMOVE_FROM_CART:
+      return {
+        ...state,
+        cart: state.cart.filter(i => i !== action.payload)
+      };
     default:
       return state;
   }
@@ -53,6 +65,12 @@ export const getProducts = () => async dispatch => {
     dispatch({ type: actionTypes.LOAD_PRODUCTS_FAILED, payload: e });
   }
 };
+
+export const addToCart = id => dispatch =>
+  dispatch({ type: actionTypes.ADD_TO_CART, payload: id });
+
+export const removeFromCart = id => dispatch =>
+  dispatch({ type: actionTypes.REMOVE_FROM_CART, payload: id });
 
 export const initStore = (initialState = exampleInitialState) =>
   createStore(

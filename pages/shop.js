@@ -1,8 +1,9 @@
 // @flow
 import React from 'react';
+import { connect } from 'react-redux';
 import styled from 'styled-components';
 import { Container } from '../components/layout';
-import { getProducts } from '../store';
+import { getProducts, addToCart, removeFromCart } from '../store';
 
 type ShopPagePros = {
   product: Product
@@ -21,11 +22,21 @@ const ProductTitle = styled.h2`
   font-family: 'Raleway', Helvetica, sans-serif;
 `;
 
-const ShopPage = ({ product }: ShopPagePros) => (
+const ShopPage = ({ product, addToCart, removeFromCart }: ShopPagePros) => (
   <div>
     <ProductHero src={`/static/images/products/${product.name}.jpg`}>
       <Container>
         <ProductTitle>{product.name}</ProductTitle>
+        {product.price ? (
+          <>
+            <button onClick={() => addToCart(product.name)}>Add To Cart</button>
+            <button onClick={() => removeFromCart(product.name)}>
+              Remove from Cart
+            </button>
+          </>
+        ) : (
+          <p>Not currently availble</p>
+        )}
       </Container>
     </ProductHero>
   </div>
@@ -46,4 +57,4 @@ ShopPage.getInitialProps = async ({ store, isServer, query: { name } }) => {
   return { product };
 };
 
-export default ShopPage;
+export default connect(null, { addToCart, removeFromCart })(ShopPage);

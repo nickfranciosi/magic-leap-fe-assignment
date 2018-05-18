@@ -3,9 +3,12 @@ import { Provider } from 'react-redux';
 import App, { Container } from 'next/app';
 import withRedux from 'next-redux-wrapper';
 import { initStore } from '../store';
-import Header from '../components/header';
+import withCart from '../containers/withCart';
 import baseStyles from '../styles/baseStyles';
 import Background from '../components/background';
+import Header from '../components/header';
+
+const HeaderWithCart = withCart(Header);
 
 export default withRedux(initStore)(
   class MagicLeapApp extends App {
@@ -23,9 +26,11 @@ export default withRedux(initStore)(
       return (
         <Container>
           <Background />
-          <Header siteTitle="Watto's Spaceship Emporium" />
           <Provider store={store}>
-            <Component {...pageProps} />
+            <>
+              <HeaderWithCart siteTitle="Watto's Spaceship Emporium" />
+              <Component {...pageProps} />
+            </>
           </Provider>
         </Container>
       );

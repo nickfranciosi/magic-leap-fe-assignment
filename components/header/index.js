@@ -8,7 +8,9 @@ import colors from '../../styles/colors';
 import fonts from '../../styles/fonts';
 
 type HeaderProps = {
-  siteTitle: string
+  siteTitle: string,
+  cart: [number],
+  total: number
 };
 
 const HeaderWrapper = styled.header`
@@ -37,7 +39,7 @@ const FlexContainer = styled.div`
   justify-content: space-between;
 `;
 
-const Header = ({ siteTitle }: HeaderProps) => (
+const Header = ({ siteTitle, cart, total }: HeaderProps) => (
   <HeaderWrapper>
     <Container>
       <FlexContainer>
@@ -50,8 +52,9 @@ const Header = ({ siteTitle }: HeaderProps) => (
           </Link>
         </FlexContainer>
         <div>
+          {total > 0 && `$${total} credits`}
           <Link href="/checkout">
-            <i>cart</i>
+            <i>{cart.length > 0 && cart.length} cart</i>
           </Link>
         </div>
       </FlexContainer>
