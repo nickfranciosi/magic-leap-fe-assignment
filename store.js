@@ -60,7 +60,7 @@ export const getProducts = () => async dispatch => {
   try {
     // TODO: move this to a server side api call
     // eslint-disable-next-line no-undef
-    const res = await fetch('http://demo7475333.mockable.io/spaceships');
+    const res = await fetch('https://demo7475333.mockable.io/spaceships');
     const { products } = await res.json();
     dispatch({ type: actionTypes.PRODUCTS_RECEIVED, payload: products });
   } catch (e) {

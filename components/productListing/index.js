@@ -46,7 +46,7 @@ const Gradient = styled.div`
 `;
 
 export default ({ name }: Product) => (
-  <Link prefetch href={`/shop?name=${name}`} as={`/shop/${name}`}>
+  <Link href={`/shop?name=${name}`} as={`/shop/${name}`}>
     <Wrapper src={name}>
       <Gradient />
       <Title>{name}</Title>
