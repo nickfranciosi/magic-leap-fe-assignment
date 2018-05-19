@@ -27,6 +27,9 @@ const AvatarLogo = styled.div`
       transform: translateY(-.05em) scale(1.03);
     }
   }
+   @media (max-width: 769px) {
+    display: none;
+  }
 `;
 
 export default AvatarLogo;

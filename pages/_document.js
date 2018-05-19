@@ -17,7 +17,7 @@ export default class MyDocument extends Document {
         <Head>
           <title>Magic Leap</title>
           <link
-            href="https://fonts.googleapis.com/css?family=Lato|Raleway"
+            href="https://fonts.googleapis.com/css?family=Lato|Raleway|Space+Mono"
             rel="stylesheet"
           />
           <link

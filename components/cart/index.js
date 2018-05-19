@@ -33,12 +33,21 @@ const CartCount = styled.div`
   font-family: 'Lato', Helvetica, sans-serif;
 `;
 
+const Svg = styled.svg`
+  fill: #ddd;
+  cursor: pointer;
+  transition: fill 500ms ease;
+  &:hover {
+    fill: #fff;
+  }
+`;
+
 // TODO: build a more robust <Icon /> component
 const Cart = ({ itemCount }: CartProps) => (
   <CartWrapper>
     {itemCount > 0 && <CartCount>{itemCount}</CartCount>}
     <Link href="/checkout">
-      <svg
+      <Svg
         enableBackground="new 0 0 100 100"
         viewBox="0 0 100 125"
         xmlns="http://www.w3.org/2000/svg"
@@ -50,7 +59,7 @@ const Cart = ({ itemCount }: CartProps) => (
         <path d="m75.481 56.307h-38.797c-1.188 0-2.151-.962-2.151-2.151 0-1.188.963-2.15 2.151-2.15h38.798c1.188 0 2.151.962 2.151 2.15 0 1.189-.963 2.151-2.152 2.151z" />
         <path d="m78.885 47.702h-45.609c-1.188 0-2.151-.963-2.151-2.152 0-1.188.963-2.151 2.151-2.151h45.608c1.189 0 2.151.963 2.151 2.151.001 1.188-.961 2.152-2.15 2.152z" />
         <path d="m83.359 39.096h-54.555c-1.188 0-2.151-.963-2.151-2.151s.963-2.152 2.151-2.152h54.556c1.189 0 2.151.963 2.151 2.152 0 1.187-.962 2.151-2.152 2.151z" />
-      </svg>
+      </Svg>
     </Link>
   </CartWrapper>
 );

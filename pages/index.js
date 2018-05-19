@@ -11,7 +11,7 @@ type IndexProps = {
 
 const IndexPage = ({ products }: IndexProps) => (
   <Container>
-    <Grid columns="repeat(auto-fill, minmax(250px, 1fr))">
+    <Grid columns="repeat(auto-fill, minmax(250px, 1fr))" gap="16px">
       {products.map(product => (
         <Cell key={product.name}>
           <ProductListing {...product} />

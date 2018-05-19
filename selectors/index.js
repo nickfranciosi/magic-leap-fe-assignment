@@ -12,6 +12,12 @@ export const getProductsInCart = createSelector(
     products.filter(item => cart.map(i => i.id).indexOf(item.name) !== -1)
 );
 
+// TODo: if can resolve all cart entries of same product this is more efficient
+// export const getProductsInCart = createSelector(
+//   [getProducts, getCart],
+//   (products, cart) => cart.map(i => products.find(p => p.name === i.id))
+// );
+
 export const getCartTotal = createSelector(
   [getProductsInCart, getCart],
   (products, cart) =>

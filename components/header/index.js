@@ -25,12 +25,16 @@ const HeaderWrapper = styled.header`
 
 const SiteTitle = styled.h1`
   color: ${colors.subduedText};
-  display: inline;
   font-family: 'Lato', Helvetica, sans-serif;
   font-size: 16px;
   letter-spacing: 1.2px;
   letter-spacing: 2.5px;
   text-transform: uppercase;
+  transition: color 300ms ease;
+  cursor: pointer;
+  &:hover {
+    color: #fff;
+  }
 `;
 
 const FlexContainer = styled.div`
