@@ -1,3 +1,4 @@
+/* eslint-disable no-shadow */
 import styled from 'styled-components';
 
 const autoRows = ({ minRowHeight = '20px' }) => `minmax(${minRowHeight}, auto)`;
@@ -23,17 +24,5 @@ const Grid = styled.div`
     justifyContent && `justify-content: ${justifyContent}`};
   ${({ alignContent }) => alignContent && `align-content: ${alignContent}`};
 `;
-
-// Grid.propTypes = {
-//   className: PropTypes.string,
-//   columns: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-//   gap: PropTypes.string,
-//   minRowHeight: PropTypes.string,
-//   flow: PropTypes.string,
-//   rows: PropTypes.string,
-//   areas: PropTypes.arrayOf(PropTypes.string),
-//   justifyContent: PropTypes.string,
-//   alignContent: PropTypes.string
-// };
 
 export default Grid;

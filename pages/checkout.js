@@ -2,77 +2,26 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Container, Grid, Cell } from '../components/layout';
-import ProductListing from '../components/productListing';
-import Button from '../components/button';
+import CartListing from '../components/cartListing';
+import { Button } from '../components/button';
+import { Message } from '../components/text';
 import withCart from '../containers/withCart';
-import colors from '../styles/colors';
 
 type CheckoutPageProps = {
   productsInCart: [Product],
   total: number,
   count: number,
-  removeFromCart: Function
+  removeFromCart: RemoveFromCart
 };
-
-type CartListingProps = {
-  product: Product,
-  remove: Function
-};
-
-const Message = styled.h2`
-  font-size: 40px;
-  font-family: 'Lato', sans-serif;
-  color: ${colors.primaryText};
-  margin-bottom: 16px;
-`;
-
-const RemoveButton = styled.button`
-  background: transparent;
-  border: none;
-  color: ${colors.alert};
-  position: absolute;
-  top: 5px;
-  left: 5px;
-  z-index: 5;
-  font-family: 'Lato', sans-serif;
-  font-size: 16px;
-  text-transform: uppercase;
-  letter-spacing: 1.2px;
-  cursor: pointer;
-  &::after {
-    content: 'Remove';
-    display: inline;
-    opacity: 0;
-    margin-left: 4px;
-    font-size: 0.75em;
-    transition: opacity 300ms ease;
-  }
-  &:hover {
-    &::after {
-      opacity: 1;
-    }
-  }
-`;
 
 const MessageWrapper = styled.div`
   text-align: center;
   margin-bottom: 24px;
 `;
 
-const ListingWrapper = styled.div`
-  position: relative;
-`;
-
 const BuyButton = styled(Button)`
   margin-bottom: 16px;
 `;
-
-const CartListing = ({ product, remove }: CartListingProps) => (
-  <ListingWrapper>
-    <RemoveButton onClick={() => remove(product.name)}>X</RemoveButton>
-    <ProductListing {...product} />
-  </ListingWrapper>
-);
 
 const CheckoutPage = ({
   productsInCart: products,

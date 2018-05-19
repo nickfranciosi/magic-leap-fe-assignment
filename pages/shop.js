@@ -1,95 +1,40 @@
 // @flow
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import withCart from '../containers/withCart';
 import { Container, Grid, Cell } from '../components/layout';
-import Button from '../components/button';
+import CartActions from '../components/cartActions';
+import ProductImage from '../components/productImage';
+import SpecList from '../components/specList';
+import { SubTitle } from '../components/text';
+import Price from '../components/price';
 import colors from '../styles/colors';
 import { getProducts } from '../store';
+import fonts from '../styles/fonts';
 
 type ShopPagePros = {
-  product: Product,
-  isInCart: boolean,
-  addToCart: any,
-  removeFromCart: any
+  product: Product
 };
 
 type ShopPageState = {
   quantity: number
 };
 
-type SpecProps = {
-  title: string,
-  value: any
-};
-
-const ProductImage = styled.img`
-  max-width: 100%;
-  width: 50vw;
-  height: auto;
-  object-fit: cover;
-`;
-
-const Label = styled.label`
-  color: ${colors.callToAction};
-  text-transform: uppercase;
-  font-size: 13px;
-  margin-bottom: 4px;
-  font-family: 'Lato', sans-serif;
-  letter-spacing: -1.1px;
-`;
-
-const CartActions = styled.div`
-  margin-bottom: 16px;
-  display: flex;
-  align-items: center;
-`;
-
-const CartQuantityWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-right: 16px;
-`;
-
-const Price = styled.h3`
-  margin-bottom: 16px;
-`;
-
+// TODO: move these styles for spec sizing
 const ProductDetails = styled.section`
-  font-size: 26px;
+  font-size: ${fonts.fontFamilies.medium};
   color: ${colors.primaryText};
-  font-family: 'Raleway', Helvetica, sans-serif;
+  font-family: ${fonts.fontFamilies.secondary};
 `;
 
-const ProductTitle = styled.h2`
-  font-size: 1.5em;
+const ProductTitle = styled(SubTitle)`
   margin-bottom: 32px;
 `;
 
-const SpecTitle = styled.p`
-  font-size: 0.65em;
-  margin-bottom: 16px;
-  text-transform: uppercase;
+const ProductPrice = styled(Price)`
+  margin-bottom: 32px;
 `;
 
-const SpecValue = styled.span`
-  color: ${colors.subduedText};
-  text-transform: none;
-`;
-
-const Spec = ({ title, value }: SpecProps) => (
-  <SpecTitle>
-    {title}: <SpecValue>{value}</SpecValue>
-  </SpecTitle>
-);
-
-const TechSpec = styled.div`
-  font-size: 0.85em;
-  padding-left: 8px;
-`;
-
-const Unavailable = styled.h3`
+const UnavailableMessage = styled.h3`
   margin-bottom: 16px;
 `;
 
@@ -97,7 +42,7 @@ class ShopPage extends Component<ShopPagePros, ShopPageState> {
   state = {
     quantity: 1
   };
-  static async getInitialProps({ store, isServer, query: { name } }) {
+  static async getInitialProps({ store, isServer, query: { name } }: any) {
     if (isServer) {
       await store.dispatch(getProducts());
     }
@@ -112,82 +57,45 @@ class ShopPage extends Component<ShopPagePros, ShopPageState> {
     return { product };
   }
 
-  setQuantity = e => {
+  setQuantity = (e: any) => {
     this.setState({
       quantity: parseInt(e.target.value, 10)
     });
   };
 
   render() {
-    const {
-      product,
-      isInCart,
-      addToCart: add,
-      removeFromCart: remove
-    } = this.props;
+    const { product } = this.props;
     const { quantity } = this.state;
     return (
-      <div>
-        <Container>
-          <Grid columns={2}>
-            <Cell>
+      <Container>
+        <Grid columns={2}>
+          <Cell>
+            <>
               <ProductDetails>
                 <ProductTitle>{product.name}</ProductTitle>
                 {product.price ? (
                   <>
-                    <Price>{product.price}</Price>
-                    <CartActions>
-                      <CartQuantityWrapper>
-                        <Label htmlFor="quantity">Qty:</Label>
-                        <select
-                          id="quantity"
-                          name="quantity"
-                          defaultValue={1}
-                          onChange={this.setQuantity}
-                        >
-                          <option value="1">1</option>
-                          <option value="2">2</option>
-                          <option value="3">3</option>
-                          <option value="4">4</option>
-                          <option value="5">5</option>
-                        </select>
-                      </CartQuantityWrapper>
-                      <Button onClick={() => add(product.name, quantity)}>
-                        Add To Cart
-                      </Button>
-                      {isInCart && (
-                        <Button onClick={() => remove(product.name)}>
-                          Remove from Cart
-                        </Button>
-                      )}
-                    </CartActions>
+                    <ProductPrice>{product.price}</ProductPrice>
+                    <CartActions
+                      product={product}
+                      handleQuantityChange={this.setQuantity}
+                      quantity={quantity}
+                    />
                   </>
                 ) : (
-                  <Unavailable>Currently Unavailble</Unavailable>
+                  <UnavailableMessage>Currently Unavailble</UnavailableMessage>
                 )}
-                <Spec title="Manufacturer" value={product.manufacturer} />
-                <Spec title="Class" value={product.class} />
-                <TechSpec>
-                  {Object.keys(product.techspecs).map(key => (
-                    <Spec
-                      title={key}
-                      key={key}
-                      value={product.techspecs[key]}
-                    />
-                  ))}
-                </TechSpec>
               </ProductDetails>
-            </Cell>
-            <Cell>
-              <ProductImage
-                src={`/static/images/products/${product.name}.jpg`}
-              />
-            </Cell>
-          </Grid>
-        </Container>
-      </div>
+              <SpecList product={product} />
+            </>
+          </Cell>
+          <Cell>
+            <ProductImage src={`/static/images/products/${product.name}.jpg`} />
+          </Cell>
+        </Grid>
+      </Container>
     );
   }
 }
 
-export default withCart(ShopPage);
+export default ShopPage;

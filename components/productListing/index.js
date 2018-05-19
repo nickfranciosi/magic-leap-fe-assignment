@@ -3,6 +3,9 @@ import React from 'react';
 import Link from 'next/link';
 import styled from 'styled-components';
 import colors from '../../styles/colors';
+import fonts from '../../styles/fonts';
+import timings from '../../styles/timings';
+import zIndex from '../../styles/zIndex';
 
 const Wrapper = styled.div`
   border: ${colors.backgroundMain};
@@ -19,11 +22,11 @@ const Wrapper = styled.div`
 
 const Title = styled.h3`
   color: ${colors.primaryText};
-  font-family: 'Space Mono', Helvetica, sans-serif;
+  font-family: ${fonts.fontFamilies.accent};
   position: absolute;
   bottom: 24px;
   left: 6px;
-  font-size: 29px;
+  font-size: ${fonts.sizes.header};
 `;
 
 const Gradient = styled.div`
@@ -33,8 +36,8 @@ const Gradient = styled.div`
   left: 0;
   right: 0;
   opacity: 0.67;
-  z-index: 1;
-  transition: opacity 300ms ease;
+  z-index: ${zIndex.default};
+  transition: opacity ${timings.default} ease;
   background-image: linear-gradient(
     to right top,
     #000000,

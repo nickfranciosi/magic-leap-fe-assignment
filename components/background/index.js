@@ -1,13 +1,14 @@
 import React from 'react';
 import styled from 'styled-components';
 import colors from '../../styles/colors';
+import zIndex from '../../styles/zIndex';
 
 const BgWrapper = styled.div`
   position: fixed;
   top: 0;
   width: 100vw;
   height: 100vh;
-  z-index: -3;
+  z-index: ${zIndex.below};
   background-color: ${colors.backgroundMain};
 `;
 

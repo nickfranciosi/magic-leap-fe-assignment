@@ -1,3 +1,4 @@
+// @flow
 declare type Product = {
   name: string,
   manufacturer: string,
@@ -18,3 +19,6 @@ declare type Techspecs = {
   armament: string,
   communications: string
 };
+
+declare function RemoveFromCart(id: string): void;
+declare function AddToCart(id: string, quantit: number): void;

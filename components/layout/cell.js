@@ -23,15 +23,4 @@ const Cell = styled.section`
   `};
 `;
 
-// Cell.propTypes = {
-//   className: PropTypes.string,
-//   width: PropTypes.number,
-//   height: PropTypes.number,
-//   top: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
-//   left: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
-//   middle: PropTypes.bool,
-//   center: PropTypes.bool,
-//   area: PropTypes.string
-// };
-
 export default Cell;

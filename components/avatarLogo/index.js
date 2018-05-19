@@ -1,10 +1,12 @@
 // @flow
 import styled from 'styled-components';
+import colors from '../../styles/colors';
+import timings from '../../styles/timings';
 
 const AvatarLogo = styled.div`
   width: ${({ size }) => size}px;
   height: ${({ size }) => size}px;
-  background: #fff;
+  background: ${colors.backgroundLight};
   border-radius: 50%;
   overflow: hidden;
   position: relative;
@@ -19,7 +21,7 @@ const AvatarLogo = styled.div`
     bottom: -0.25em;
     background: url('${({ avatar }) => avatar}') no-repeat;
     background-size: 100%;
-    transition: transform 350ms ease-in-out;
+    transition: transform ${timings.default} ease-in-out;
     transform: translate(0) scale(1);
   }
   &:hover {

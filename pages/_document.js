@@ -15,7 +15,7 @@ export default class MyDocument extends Document {
     return (
       <html lang="en">
         <Head>
-          <title>Magic Leap</title>
+          <title>Wattos Spaceship Emporium</title>
           <link
             href="https://fonts.googleapis.com/css?family=Lato|Raleway|Space+Mono"
             rel="stylesheet"

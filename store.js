@@ -3,8 +3,7 @@ import { composeWithDevTools } from 'redux-devtools-extension';
 import thunkMiddleware from 'redux-thunk';
 import 'isomorphic-unfetch';
 
-// TODO: rename
-const exampleInitialState = {
+const initState = {
   loading: false,
   products: [],
   cart: []
@@ -19,7 +18,7 @@ export const actionTypes = {
 };
 
 // REDUCERS
-export const reducer = (state = exampleInitialState, action) => {
+export const reducer = (state = initState, action) => {
   switch (action.type) {
     case actionTypes.LOADING_PRODUCTS:
       return {
@@ -75,7 +74,7 @@ export const addToCart = (id, quantity = 1) => dispatch => {
 export const removeFromCart = id => dispatch =>
   dispatch({ type: actionTypes.REMOVE_FROM_CART, payload: id });
 
-export const initStore = (initialState = exampleInitialState) =>
+export const initStore = (initialState = initState) =>
   createStore(
     reducer,
     initialState,
