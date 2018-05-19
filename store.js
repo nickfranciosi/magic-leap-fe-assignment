@@ -3,6 +3,7 @@ import { composeWithDevTools } from 'redux-devtools-extension';
 import thunkMiddleware from 'redux-thunk';
 import 'isomorphic-unfetch';
 
+// TODO: rename
 const exampleInitialState = {
   loading: false,
   products: [],
@@ -45,7 +46,7 @@ export const reducer = (state = exampleInitialState, action) => {
     case actionTypes.REMOVE_FROM_CART:
       return {
         ...state,
-        cart: state.cart.filter(i => i !== action.payload)
+        cart: state.cart.filter(i => i.id !== action.payload)
       };
     default:
       return state;
@@ -57,6 +58,7 @@ export const reducer = (state = exampleInitialState, action) => {
 export const getProducts = () => async dispatch => {
   dispatch({ type: actionTypes.LOADING_PRODUCTS });
   try {
+    // TODO: move this to a server side api call
     // eslint-disable-next-line no-undef
     const res = await fetch('http://demo7475333.mockable.io/spaceships');
     const { products } = await res.json();
@@ -66,8 +68,9 @@ export const getProducts = () => async dispatch => {
   }
 };
 
-export const addToCart = id => dispatch =>
-  dispatch({ type: actionTypes.ADD_TO_CART, payload: id });
+export const addToCart = (id, quantity = 1) => dispatch => {
+  dispatch({ type: actionTypes.ADD_TO_CART, payload: { id, quantity } });
+};
 
 export const removeFromCart = id => dispatch =>
   dispatch({ type: actionTypes.REMOVE_FROM_CART, payload: id });

@@ -2,9 +2,9 @@
 import React from 'react';
 import Link from 'next/link';
 import styled from 'styled-components';
+import colors from '../../styles/colors';
 
 type CartProps = {
-  total: number,
   itemCount: number
 };
 
@@ -17,7 +17,7 @@ const CartWrapper = styled.div`
 `;
 
 const CartCount = styled.div`
-  background-color: #e15021;
+  background-color: ${colors.alert};
   display: block;
   width: 20px;
   height: 20px;
@@ -33,7 +33,8 @@ const CartCount = styled.div`
   font-family: 'Lato', Helvetica, sans-serif;
 `;
 
-const Cart = ({ total, itemCount }: CartProps) => (
+// TODO: build a more robust <Icon /> component
+const Cart = ({ itemCount }: CartProps) => (
   <CartWrapper>
     {itemCount > 0 && <CartCount>{itemCount}</CartCount>}
     <Link href="/checkout">

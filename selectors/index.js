@@ -8,11 +8,23 @@ const formatPrice = (price = '') => parseInt(price.replace(',', ''), 10);
 
 export const getProductsInCart = createSelector(
   [getProducts, getCart],
-  (products, cart) => products.filter(item => cart.indexOf(item.name) !== -1)
+  (products, cart) =>
+    products.filter(item => cart.map(i => i.id).indexOf(item.name) !== -1)
 );
 
-export const getCartTotal = createSelector([getProductsInCart], products =>
-  products.reduce((acc, curr) => acc + formatPrice(curr.price), 0)
+export const getCartTotal = createSelector(
+  [getProductsInCart, getCart],
+  (products, cart) =>
+    products.reduce((acc, curr) => {
+      const multiplier = cart
+        .filter(i => i.id === curr.name)
+        .reduce((ac, cur) => ac + cur.quantity, 0);
+      return acc + formatPrice(curr.price) * multiplier;
+    }, 0)
+);
+
+export const getCartCount = createSelector([getCart], products =>
+  products.reduce((acc, curr) => acc + curr.quantity, 0)
 );
 
 export const isProductInCart = productName =>

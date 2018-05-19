@@ -10,8 +10,7 @@ import fonts from '../../styles/fonts';
 
 type HeaderProps = {
   siteTitle: string,
-  cart: [number],
-  total: number
+  count: number
 };
 
 const HeaderWrapper = styled.header`
@@ -40,7 +39,7 @@ const FlexContainer = styled.div`
   justify-content: space-between;
 `;
 
-const Header = ({ siteTitle, cart, total }: HeaderProps) => (
+const Header = ({ siteTitle, count }: HeaderProps) => (
   <HeaderWrapper>
     <Container>
       <FlexContainer>
@@ -53,7 +52,7 @@ const Header = ({ siteTitle, cart, total }: HeaderProps) => (
           </Link>
         </FlexContainer>
         {/* TODO: Shoul maybe should expost cart data to cart component directly */}
-        <Cart itemCount={cart.length} total={total} />
+        <Cart itemCount={count} />
       </FlexContainer>
     </Container>
   </HeaderWrapper>
