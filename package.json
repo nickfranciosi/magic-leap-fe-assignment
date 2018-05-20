@@ -10,10 +10,14 @@
     "flow": "flow check",
     "lint": "eslint ./",
     "test": "NODE_ENV=test jest",
-    "preCommit": "npm test:all",
     "test:all": "npm run flow && npm run lint && npm run test",
     "test:watch": "npm test -- --watch"
   },
+  "pre-commit": [
+    "flow",
+    "lint",
+    "test"
+  ],
   "keywords": [],
   "files.associations": {
     "*.js": "flow"
@@ -51,6 +55,7 @@
     "eslint-plugin-react": "^7.8.2",
     "flow-bin": "^0.72.0",
     "jest": "^22.4.4",
+    "pre-commit": "^1.2.2",
     "prettier": "1.12.1",
     "react-addons-test-utils": "^15.6.2",
     "react-test-renderer": "^16.3.2"
