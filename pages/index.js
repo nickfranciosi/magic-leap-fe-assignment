@@ -1,7 +1,7 @@
 // @flow
 import React from 'react';
 import { connect } from 'react-redux';
-import { getProducts } from '../store';
+import { getProducts } from '../actions';
 import ProductListing from '../components/productListing';
 import { Container, Grid, Cell } from '../components/layout';
 

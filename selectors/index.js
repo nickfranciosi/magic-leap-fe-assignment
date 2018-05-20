@@ -1,12 +1,9 @@
 // @flow
 import { createSelector } from 'reselect';
+import { formatPrice } from '../utilities/currency';
 
 export const getProducts = (state: AppState): ?(Product[]) => state.products;
 export const getCart = (state: AppState): ?(CartEntry[]) => state.cart;
-
-// TODO: Move to utility
-const formatPrice = (priceString: string = ''): number =>
-  parseInt(priceString.replace(',', ''), 10);
 
 export const getProductsInCart: Function = createSelector(
   [getProducts, getCart],

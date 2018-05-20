@@ -8,7 +8,7 @@ import SpecList from '../components/specList';
 import { SubTitle } from '../components/text';
 import Price from '../components/price';
 import colors from '../styles/colors';
-import { getProducts } from '../store';
+import { getProducts } from '../actions';
 import fonts from '../styles/fonts';
 
 type ShopPagePros = {

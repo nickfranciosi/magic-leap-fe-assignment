@@ -6,7 +6,7 @@ import {
   getCartCount,
   isProductInCart
 } from '../selectors';
-import { addToCart, removeFromCart } from '../store';
+import { addToCart, removeFromCart } from '../actions';
 
 const mapStateToProps = (state: AppState, props: any) => ({
   cart: state.cart,
