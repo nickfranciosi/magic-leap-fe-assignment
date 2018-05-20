@@ -1,3 +1,4 @@
+// @flow
 import { connect } from 'react-redux';
 import {
   getCartTotal,
@@ -7,7 +8,7 @@ import {
 } from '../selectors';
 import { addToCart, removeFromCart } from '../store';
 
-const mapStateToProps = (state, props) => ({
+const mapStateToProps = (state: AppState, props: any) => ({
   cart: state.cart,
   count: getCartCount(state),
   productsInCart: getProductsInCart(state),
@@ -15,7 +16,7 @@ const mapStateToProps = (state, props) => ({
   isInCart: props.product && isProductInCart(props.product.name)(state)
 });
 
-const withCart = Component =>
+const withCart = (Component: any) =>
   connect(mapStateToProps, { addToCart, removeFromCart })(Component);
 
 export default withCart;

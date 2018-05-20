@@ -1,9 +1,10 @@
+// @flow
 import { createStore, applyMiddleware } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import thunkMiddleware from 'redux-thunk';
 import 'isomorphic-unfetch';
 
-const initState = {
+const initState: AppState = {
   loading: false,
   products: [],
   cart: []
@@ -18,7 +19,9 @@ export const actionTypes = {
 };
 
 // REDUCERS
-export const reducer = (state = initState, action) => {
+// Flow wasn't cooperating with me to use AppState and Action here
+// will look into how I am setting the types inccorectly
+export const reducer = (state: any = initState, action: any) => {
   switch (action.type) {
     case actionTypes.LOADING_PRODUCTS:
       return {
@@ -54,7 +57,7 @@ export const reducer = (state = initState, action) => {
 
 // ACTIONS
 
-export const getProducts = () => async dispatch => {
+export const getProducts = () => async (dispatch: Dispatch) => {
   dispatch({ type: actionTypes.LOADING_PRODUCTS });
   try {
     // TODO: move this to a server side api call
@@ -67,14 +70,16 @@ export const getProducts = () => async dispatch => {
   }
 };
 
-export const addToCart = (id, quantity = 1) => dispatch => {
+export const addToCart = (id: string, quantity: number = 1) => (
+  dispatch: Dispatch
+) => {
   dispatch({ type: actionTypes.ADD_TO_CART, payload: { id, quantity } });
 };
 
-export const removeFromCart = id => dispatch =>
+export const removeFromCart = (id: string) => (dispatch: Dispatch) =>
   dispatch({ type: actionTypes.REMOVE_FROM_CART, payload: id });
 
-export const initStore = (initialState = initState) =>
+export const initStore = (initialState: AppState = initState) =>
   createStore(
     reducer,
     initialState,

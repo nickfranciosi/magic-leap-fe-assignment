@@ -1,3 +1,4 @@
+// @flow
 /* eslint-disable no-shadow */
 import styled from 'styled-components';
 

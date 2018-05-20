@@ -21,7 +21,7 @@ type ShopPageState = {
 
 // TODO: move these styles for spec sizing
 const ProductDetails = styled.section`
-  font-size: ${fonts.fontFamilies.medium};
+  font-size: ${fonts.sizes.medium};
   color: ${colors.primaryText};
   font-family: ${fonts.fontFamilies.secondary};
 `;

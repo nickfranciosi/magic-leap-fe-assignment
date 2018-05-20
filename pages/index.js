@@ -6,7 +6,12 @@ import ProductListing from '../components/productListing';
 import { Container, Grid, Cell } from '../components/layout';
 
 type IndexProps = {
-  products: [Product]
+  products: Product[]
+};
+
+type InitalProps = {
+  isServer: boolean,
+  store: Function
 };
 
 const IndexPage = ({ products }: IndexProps) => (
@@ -21,7 +26,7 @@ const IndexPage = ({ products }: IndexProps) => (
   </Container>
 );
 
-IndexPage.getInitialProps = async ({ store, isServer }) => {
+IndexPage.getInitialProps = async ({ store, isServer }: InitalProps) => {
   if (isServer) {
     await store.dispatch(getProducts());
   }
@@ -33,6 +38,6 @@ IndexPage.getInitialProps = async ({ store, isServer }) => {
   }
 };
 
-const mapStateToProps = ({ products }) => ({ products });
+const mapStateToProps = ({ products }: AppState): any => ({ products });
 
 export default connect(mapStateToProps)(IndexPage);

@@ -8,7 +8,7 @@ import { Message } from '../components/text';
 import withCart from '../containers/withCart';
 
 type CheckoutPageProps = {
-  productsInCart: [Product],
+  productsInCart: Product[],
   total: number,
   count: number,
   removeFromCart: RemoveFromCart

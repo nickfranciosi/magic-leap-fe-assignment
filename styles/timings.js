@@ -1,3 +1,5 @@
+// @flow
+
 export default {
   fast: '200ms',
   default: '350ms',

@@ -1,7 +1,26 @@
+// @flow
+type FontSizes = {
+  base: string,
+  medium: string,
+  header: string,
+  detail: string
+};
+
+type FontFamilies = {
+  primary: string,
+  secondary: string,
+  accent: string
+};
+
+type Fonts = {
+  sizes: FontSizes,
+  fontFamilies: FontFamilies
+};
+
 const sansSerifFallback = 'Helvetica, arial, sans-serif';
 const monoSpaceFallback = 'monospace';
 
-const fontFamilyUtil = (font, fallBack = sansSerifFallback) =>
+const fontFamilyUtil = (font: string, fallBack: string = sansSerifFallback) =>
   `'${font}', ${fallBack}`;
 
 const fontFamilies = {
@@ -17,7 +36,9 @@ const sizes = {
   detail: '11px'
 };
 
-export default {
+const fonts: Fonts = {
   sizes,
   fontFamilies
 };
+
+export default fonts;

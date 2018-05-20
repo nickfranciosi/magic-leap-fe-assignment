@@ -1,4 +1,16 @@
 // @flow
+/* eslint-disable no-use-before-define */
+declare type AppState = {
+  loading: boolean,
+  products: ?(Product[]),
+  cart: ?(CartEntry[])
+};
+
+declare type CartEntry = {
+  id: string,
+  quantity: number
+};
+
 declare type Product = {
   name: string,
   manufacturer: string,
@@ -21,4 +33,14 @@ declare type Techspecs = {
 };
 
 declare function RemoveFromCart(id: string): void;
-declare function AddToCart(id: string, quantit: number): void;
+declare function AddToCart(id: string, quantity: number): void;
+type Action = {
+  type: string,
+  payload?: any
+};
+
+// Redux
+type GetState = () => AppState;
+type PromiseAction = Promise<Action>;
+type ThunkAction = (dispatch: Dispatch, getState: GetState) => any;
+type Dispatch = (action: Action | ThunkAction | PromiseAction) => any;

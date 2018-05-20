@@ -1,3 +1,5 @@
+// @flow
+
 const alert = '#e15021';
 const backgroundMain = '#151515';
 const border = '#333';

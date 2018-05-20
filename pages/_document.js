@@ -1,8 +1,10 @@
+// @flow
+import React from 'react';
 import Document, { Head, Main, NextScript } from 'next/document';
 import { ServerStyleSheet } from 'styled-components';
 
 export default class MyDocument extends Document {
-  static getInitialProps({ renderPage }) {
+  static getInitialProps({ renderPage }: Function) {
     const ssrSheet = new ServerStyleSheet();
     const page = renderPage(App => props =>
       ssrSheet.collectStyles(<App {...props} />)

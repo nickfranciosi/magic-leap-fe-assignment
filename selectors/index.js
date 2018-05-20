@@ -1,14 +1,16 @@
+// @flow
 import { createSelector } from 'reselect';
 
-const getProducts = state => state.products;
-const getCart = state => state.cart;
+export const getProducts = (state: AppState): ?(Product[]) => state.products;
+export const getCart = (state: AppState): ?(CartEntry[]) => state.cart;
 
 // TODO: Move to utility
-const formatPrice = (price = '') => parseInt(price.replace(',', ''), 10);
+const formatPrice = (priceString: string = ''): number =>
+  parseInt(priceString.replace(',', ''), 10);
 
-export const getProductsInCart = createSelector(
+export const getProductsInCart: Function = createSelector(
   [getProducts, getCart],
-  (products, cart) =>
+  (products: [Product], cart: [CartEntry]) =>
     products.filter(item => cart.map(i => i.id).indexOf(item.name) !== -1)
 );
 
@@ -18,9 +20,9 @@ export const getProductsInCart = createSelector(
 //   (products, cart) => cart.map(i => products.find(p => p.name === i.id))
 // );
 
-export const getCartTotal = createSelector(
+export const getCartTotal: Function = createSelector(
   [getProductsInCart, getCart],
-  (products, cart) =>
+  (products: [Product], cart: [CartEntry]) =>
     products.reduce((acc, curr) => {
       const multiplier = cart
         .filter(i => i.id === curr.name)
@@ -29,13 +31,14 @@ export const getCartTotal = createSelector(
     }, 0)
 );
 
-export const getCartCount = createSelector([getCart], products =>
-  products.reduce((acc, curr) => acc + curr.quantity, 0)
+export const getCartCount: Function = createSelector(
+  [getCart],
+  (cart: [CartEntry]) => cart.reduce((acc, curr) => acc + curr.quantity, 0)
 );
 
-export const isProductInCart = productName =>
+export const isProductInCart: Function = (productName: string) =>
   createSelector(
     [getProductsInCart],
-    products =>
+    (products: [Product]) =>
       products.filter(product => product.name === productName).length > 0
   );

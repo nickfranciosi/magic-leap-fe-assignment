@@ -1,3 +1,4 @@
+// @flow
 import styled from 'styled-components';
 import fonts from '../../styles/fonts';
 import colors from '../../styles/colors';

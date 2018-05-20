@@ -1,3 +1,5 @@
+// @flow
+
 export default {
   auto: 'auto',
   below: -1,
