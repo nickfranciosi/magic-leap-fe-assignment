@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Price it should render 1`] = `
+.c0 {
+  font-size: 32px;
+  background-color: #fff;
+  width: auto;
+  color: #000;
+  padding: 16px;
+  background: linear-gradient( to right,rgba(255,255,255,1) 26%,rgba(255,255,255,0.04) 70%,rgba(255,255,255,0.02) 71%,rgba(255,255,255,0) 72%,rgba(255,255,255,0) 81% );
+}
+
+<h3
+  className="c0"
+/>
+`;

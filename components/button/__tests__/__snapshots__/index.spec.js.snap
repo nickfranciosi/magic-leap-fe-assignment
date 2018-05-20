@@ -1,0 +1,67 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PrimaryButton it should render 1`] = `
+.c0 {
+  background-color: transparent;
+  border: 1px solid #edec51;
+  color: #edec51;
+  font-size: 16px;
+  text-transform: uppercase;
+  font-family: 'Lato',Helvetica,arial,sans-serif;
+  padding: 16px;
+  -webkit-letter-spacing: -1.1px;
+  -moz-letter-spacing: -1.1px;
+  -ms-letter-spacing: -1.1px;
+  letter-spacing: -1.1px;
+  -webkit-transition: background-color 200ms ease-in,color 200ms ease-in;
+  transition: background-color 200ms ease-in,color 200ms ease-in;
+  cursor: pointer;
+}
+
+.c0:hover {
+  background-color: #edec51;
+  color: #000;
+}
+
+<button
+  className="c0"
+/>
+`;
+
+exports[`RemoveButton it should render 1`] = `
+.c0 {
+  background: transparent;
+  border: none;
+  color: #e15021;
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  z-index: 2;
+  font-family: 'Lato',Helvetica,arial,sans-serif;
+  font-size: 16px;
+  text-transform: uppercase;
+  -webkit-letter-spacing: 1.2px;
+  -moz-letter-spacing: 1.2px;
+  -ms-letter-spacing: 1.2px;
+  letter-spacing: 1.2px;
+  cursor: pointer;
+}
+
+.c0:after {
+  content: 'Remove All';
+  display: inline;
+  opacity: 0;
+  margin-left: 4px;
+  font-size: 0.75em;
+  -webkit-transition: opacity 350ms ease;
+  transition: opacity 350ms ease;
+}
+
+.c0:hover:after {
+  opacity: 1;
+}
+
+<button
+  className="c0"
+/>
+`;

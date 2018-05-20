@@ -1,0 +1,140 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AvatarLogo it should accept a size prop 1`] = `
+.c0 {
+  width: 5px;
+  height: 5px;
+  background: #fff;
+  border-radius: 50%;
+  overflow: hidden;
+  position: relative;
+  margin-right: 16px;
+  cursor: pointer;
+}
+
+.c0:after {
+  content: '';
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  font-size: 5px;
+  bottom: -0.25em;
+  background: url('') no-repeat;
+  background-size: 100%;
+  -webkit-transition: -webkit-transform 350ms ease-in-out;
+  -webkit-transition: transform 350ms ease-in-out;
+  transition: transform 350ms ease-in-out;
+  -webkit-transform: translate(0) scale(1);
+  -ms-transform: translate(0) scale(1);
+  transform: translate(0) scale(1);
+}
+
+.c0:hover:after {
+  -webkit-transform: translateY(-.05em) scale(1.03);
+  -ms-transform: translateY(-.05em) scale(1.03);
+  transform: translateY(-.05em) scale(1.03);
+}
+
+@media (max-width:768px) {
+  .c0 {
+    display: none;
+  }
+}
+
+<div
+  className="c0"
+  size={5}
+/>
+`;
+
+exports[`AvatarLogo it should accept an avatar prop 1`] = `
+.c0 {
+  width: px;
+  height: px;
+  background: #fff;
+  border-radius: 50%;
+  overflow: hidden;
+  position: relative;
+  margin-right: 16px;
+  cursor: pointer;
+}
+
+.c0:after {
+  content: '';
+  position: absolute;
+  width: px;
+  height: px;
+  font-size: px;
+  bottom: -0.25em;
+  background: url('/path/to/image') no-repeat;
+  background-size: 100%;
+  -webkit-transition: -webkit-transform 350ms ease-in-out;
+  -webkit-transition: transform 350ms ease-in-out;
+  transition: transform 350ms ease-in-out;
+  -webkit-transform: translate(0) scale(1);
+  -ms-transform: translate(0) scale(1);
+  transform: translate(0) scale(1);
+}
+
+.c0:hover:after {
+  -webkit-transform: translateY(-.05em) scale(1.03);
+  -ms-transform: translateY(-.05em) scale(1.03);
+  transform: translateY(-.05em) scale(1.03);
+}
+
+@media (max-width:768px) {
+  .c0 {
+    display: none;
+  }
+}
+
+<div
+  className="c0"
+/>
+`;
+
+exports[`AvatarLogo it should render 1`] = `
+.c0 {
+  width: px;
+  height: px;
+  background: #fff;
+  border-radius: 50%;
+  overflow: hidden;
+  position: relative;
+  margin-right: 16px;
+  cursor: pointer;
+}
+
+.c0:after {
+  content: '';
+  position: absolute;
+  width: px;
+  height: px;
+  font-size: px;
+  bottom: -0.25em;
+  background: url('') no-repeat;
+  background-size: 100%;
+  -webkit-transition: -webkit-transform 350ms ease-in-out;
+  -webkit-transition: transform 350ms ease-in-out;
+  transition: transform 350ms ease-in-out;
+  -webkit-transform: translate(0) scale(1);
+  -ms-transform: translate(0) scale(1);
+  transform: translate(0) scale(1);
+}
+
+.c0:hover:after {
+  -webkit-transform: translateY(-.05em) scale(1.03);
+  -ms-transform: translateY(-.05em) scale(1.03);
+  transform: translateY(-.05em) scale(1.03);
+}
+
+@media (max-width:768px) {
+  .c0 {
+    display: none;
+  }
+}
+
+<div
+  className="c0"
+/>
+`;

@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CountIndicator it should render 1`] = `
+.c0 {
+  background-color: #e15021;
+  display: block;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  color: #fff;
+  position: absolute;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  top: -5px;
+  right: -2px;
+  font-size: 11px;
+  font-family: 'Lato',Helvetica,arial,sans-serif;
+}
+
+<div
+  className="c0"
+/>
+`;
