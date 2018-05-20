@@ -2,6 +2,10 @@
 import 'isomorphic-unfetch';
 import actionTypes from './types';
 
+// TODO: should be a call to our node backend
+export const API = {
+  products: 'https://demo7475333.mockable.io/spaceships'
+};
 // Usually I would split actions up into seperate files based
 // on the piece of state that they work on but since
 // there are  only products and cart right now
@@ -12,7 +16,7 @@ export const getProducts = () => async (dispatch: Dispatch) => {
   try {
     // TODO: move this to a server side api call or at least to .env
     // eslint-disable-next-line no-undef
-    const res = await fetch('https://demo7475333.mockable.io/spaceships');
+    const res = await fetch(API.products);
     const { products } = await res.json();
     dispatch({ type: actionTypes.PRODUCTS_RECEIVED, payload: products });
   } catch (e) {
