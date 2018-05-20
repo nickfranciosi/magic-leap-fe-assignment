@@ -8,7 +8,6 @@ const MainTitle = styled.h1`
   color: ${colors.subduedText};
   font-family: ${fonts.fontFamilies.primary};
   font-size: ${fonts.sizes.base};
-  letter-spacing: 1.2px;
   letter-spacing: 2.5px;
   text-transform: uppercase;
   transition: color ${timings.default} ease;

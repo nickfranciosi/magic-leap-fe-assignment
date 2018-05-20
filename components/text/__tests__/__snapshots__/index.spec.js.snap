@@ -5,10 +5,6 @@ exports[`MainTitle it should render 1`] = `
   color: #ddd;
   font-family: 'Lato',Helvetica,arial,sans-serif;
   font-size: 16px;
-  -webkit-letter-spacing: 1.2px;
-  -moz-letter-spacing: 1.2px;
-  -ms-letter-spacing: 1.2px;
-  letter-spacing: 1.2px;
   -webkit-letter-spacing: 2.5px;
   -moz-letter-spacing: 2.5px;
   -ms-letter-spacing: 2.5px;
