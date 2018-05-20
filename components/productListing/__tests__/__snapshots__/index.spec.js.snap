@@ -1,0 +1,55 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ProductListing it should render 1`] = `
+.c0 {
+  border: #151515;
+  width: 100%;
+  height: auto;
+  min-height: 250px;
+  border: 1px solid #9e4f60;
+  position: relative;
+  cursor: pointer;
+  background: url('/static/images/products/.jpg') no-repeat;
+  background-size: cover;
+  object-fit: cover;
+}
+
+.c2 {
+  color: #fff;
+  font-family: 'Space Mono',monospace;
+  position: absolute;
+  bottom: 24px;
+  left: 6px;
+  font-size: 32px;
+}
+
+.c1 {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  opacity: 0.67;
+  z-index: 1;
+  -webkit-transition: opacity 350ms ease;
+  transition: opacity 350ms ease;
+  background-image: linear-gradient( to right top,#000000,rgba(0,0,0,0) 56% );
+}
+
+.c1:hover {
+  opacity: 0;
+}
+
+<div
+  className="c0"
+  onClick={[Function]}
+  src={undefined}
+>
+  <div
+    className="c1"
+  />
+  <h3
+    className="c2"
+  />
+</div>
+`;

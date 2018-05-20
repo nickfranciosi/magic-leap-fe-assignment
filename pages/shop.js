@@ -2,7 +2,7 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import { Container } from '../components/layout';
-import CartActions from '../components/cartActions';
+import ConnectedCartActions from '../components/cartActions';
 import ProductImage from '../components/productImage';
 import SpecList from '../components/specList';
 import { SubTitle } from '../components/text';
@@ -84,7 +84,7 @@ class ShopPage extends Component<ShopPagePros, ShopPageState> {
                 {product.price ? (
                   <>
                     <ProductPrice>{product.price}</ProductPrice>
-                    <CartActions
+                    <ConnectedCartActions
                       product={product}
                       handleQuantityChange={this.setQuantity}
                       quantity={quantity}

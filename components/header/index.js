@@ -4,7 +4,7 @@ import Link from 'next/link';
 import styled from 'styled-components';
 import { Container } from '../layout';
 import AvatarLogo from '../avatarLogo';
-import ShoppingCart from '../shoppingCart';
+import ConnectedShoppingCart from '../shoppingCart';
 import { MainTitle } from '../text';
 import colors from '../../styles/colors';
 import zIndex from '../../styles/zIndex';
@@ -43,7 +43,7 @@ const Header = ({ siteTitle }: HeaderProps) => (
             <MainTitle>{siteTitle}</MainTitle>
           </Link>
         </FlexContainer>
-        <ShoppingCart />
+        <ConnectedShoppingCart />
       </FlexContainer>
     </Container>
   </HeaderWrapper>

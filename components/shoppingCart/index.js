@@ -26,7 +26,7 @@ const Svg = styled.svg`
 `;
 
 // TODO: build a more robust <Icon /> component
-const ShoppingCart = ({ count }: CartProps) => (
+export const ShoppingCart = ({ count }: CartProps) => (
   <CartWrapper>
     {count > 0 && <CountIndicator>{count}</CountIndicator>}
     <Link href="/checkout">
@@ -45,4 +45,5 @@ const ShoppingCart = ({ count }: CartProps) => (
   </CartWrapper>
 );
 
-export default withCart(ShoppingCart);
+const ConnectedShoppingCart = withCart(ShoppingCart);
+export default ConnectedShoppingCart;

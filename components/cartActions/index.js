@@ -31,7 +31,7 @@ const CartButton = styled(Button)`
   margin-left: 8px;
 `;
 
-const CartActions = ({
+export const CartActions = ({
   product,
   addToCart: add,
   removeFromCart: remove,
@@ -55,4 +55,5 @@ const CartActions = ({
   </CartActionsWrapper>
 );
 
-export default withCart(CartActions);
+const ConnectedCartActions = withCart(CartActions);
+export default ConnectedCartActions;
