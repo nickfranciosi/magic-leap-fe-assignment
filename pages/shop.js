@@ -1,7 +1,7 @@
 // @flow
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import { Container, Grid, Cell } from '../components/layout';
+import { Container } from '../components/layout';
 import CartActions from '../components/cartActions';
 import ProductImage from '../components/productImage';
 import SpecList from '../components/specList';
@@ -10,6 +10,7 @@ import Price from '../components/price';
 import colors from '../styles/colors';
 import { getProducts } from '../actions';
 import fonts from '../styles/fonts';
+import breakpoints from '../styles/breakpoints';
 
 type ShopPagePros = {
   product: Product
@@ -19,7 +20,6 @@ type ShopPageState = {
   quantity: number
 };
 
-// TODO: move these styles for spec sizing
 const ProductDetails = styled.section`
   font-size: ${fonts.sizes.medium};
   color: ${colors.primaryText};
@@ -38,6 +38,14 @@ const UnavailableMessage = styled.h3`
   margin-bottom: 16px;
 `;
 
+const FlexContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  @media (max-width: ${breakpoints.tablet}) {
+    flex-direction: column-reverse;
+  }
+`;
 class ShopPage extends Component<ShopPagePros, ShopPageState> {
   state = {
     quantity: 1
@@ -68,8 +76,8 @@ class ShopPage extends Component<ShopPagePros, ShopPageState> {
     const { quantity } = this.state;
     return (
       <Container>
-        <Grid columns={2}>
-          <Cell>
+        <FlexContainer>
+          <div>
             <>
               <ProductDetails>
                 <ProductTitle>{product.name}</ProductTitle>
@@ -88,11 +96,9 @@ class ShopPage extends Component<ShopPagePros, ShopPageState> {
               </ProductDetails>
               <SpecList product={product} />
             </>
-          </Cell>
-          <Cell>
-            <ProductImage src={`/static/images/products/${product.name}.jpg`} />
-          </Cell>
-        </Grid>
+          </div>
+          <ProductImage src={`/static/images/products/${product.name}.jpg`} />
+        </FlexContainer>
       </Container>
     );
   }

@@ -2,6 +2,7 @@
 import styled from 'styled-components';
 import colors from '../../styles/colors';
 import timings from '../../styles/timings';
+import breakpoints from '../../styles/breakpoints';
 
 const AvatarLogo = styled.div`
   width: ${({ size }) => size}px;
@@ -29,7 +30,7 @@ const AvatarLogo = styled.div`
       transform: translateY(-.05em) scale(1.03);
     }
   }
-   @media (max-width: 769px) {
+   @media (max-width: ${breakpoints.tablet}) {
     display: none;
   }
 `;

@@ -8,6 +8,7 @@ import ShoppingCart from '../shoppingCart';
 import { MainTitle } from '../text';
 import colors from '../../styles/colors';
 import zIndex from '../../styles/zIndex';
+import breakpoints from '../../styles/breakpoints';
 
 type HeaderProps = {
   siteTitle: string
@@ -19,6 +20,9 @@ const HeaderWrapper = styled.header`
   margin-bottom: 72px;
   padding: 24px 0;
   z-index: ${zIndex.below};
+  @media (max-width: ${breakpoints.tablet}) {
+    margin-bottom: 32px;
+  }
 `;
 
 const FlexContainer = styled.div`
