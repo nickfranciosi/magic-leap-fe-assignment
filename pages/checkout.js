@@ -8,7 +8,7 @@ import { Message } from '../components/text';
 import withCart from '../containers/withCart';
 
 type CheckoutPageProps = {
-  productsInCart: Product[],
+  productsInCartWithQuantity: Product[],
   total: number,
   count: number,
   removeFromCart: RemoveFromCart
@@ -24,7 +24,7 @@ const BuyButton = styled(Button)`
 `;
 
 const CheckoutPage = ({
-  productsInCart: products,
+  productsInCartWithQuantity: products,
   count,
   total,
   removeFromCart

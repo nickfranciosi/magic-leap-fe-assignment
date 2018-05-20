@@ -15,6 +15,7 @@ declare type Product = {
   name: string,
   manufacturer: string,
   class: string,
+  quantity: ?number,
   price: string,
   techspecs: Techspecs
 };
