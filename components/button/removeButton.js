@@ -19,7 +19,7 @@ const RemoveButton = styled.button`
   letter-spacing: 1.2px;
   cursor: pointer;
   &:after {
-    content: 'Remove';
+    content: ${({ text }) => text || `'Remove All'`};
     display: inline;
     opacity: 0;
     margin-left: 4px;

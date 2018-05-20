@@ -11,7 +11,8 @@ type CheckoutPageProps = {
   productsInCartWithQuantity: Product[],
   total: number,
   count: number,
-  removeFromCart: RemoveFromCart
+  removeFromCart: RemoveFromCart,
+  addToCart: AddToCart
 };
 
 const MessageWrapper = styled.div`
@@ -27,7 +28,8 @@ const CheckoutPage = ({
   productsInCartWithQuantity: products,
   count,
   total,
-  removeFromCart
+  removeFromCart,
+  addToCart
 }: CheckoutPageProps) => (
   <Container>
     {products.length < 1 ? (
@@ -42,7 +44,11 @@ const CheckoutPage = ({
         <Grid columns="repeat(auto-fill, minmax(250px, 1fr))">
           {products.map(product => (
             <Cell key={product.name}>
-              <CartListing product={product} remove={removeFromCart} />
+              <CartListing
+                product={product}
+                remove={removeFromCart}
+                add={addToCart}
+              />
             </Cell>
           ))}
         </Grid>
