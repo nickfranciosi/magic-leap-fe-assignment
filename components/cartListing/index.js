@@ -21,7 +21,7 @@ const CartListing = ({ product, add, remove }: CartListingProps) => (
       add={add}
       remove={remove}
       productKey={product.name}
-      quantity={product.quantity}
+      quantity={product.quantity || 0}
     />
     <RemoveButton onClick={() => remove(product.name)}>X</RemoveButton>
     <ProductListing {...product} />
