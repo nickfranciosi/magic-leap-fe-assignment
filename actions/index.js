@@ -6,10 +6,10 @@ import actionTypes from './types';
 export const API = {
   products: 'https://demo7475333.mockable.io/spaceships'
 };
-// Usually I would split actions up into seperate files based
+// Usually I would split actions up into separate files based
 // on the piece of state that they work on but since
 // there are  only products and cart right now
-// and they are related I thoght one actions file
+// and they are related I thought one actions file
 // would be more straightforward
 export const getProducts = () => async (dispatch: Dispatch) => {
   dispatch({ type: actionTypes.LOADING_PRODUCTS });
