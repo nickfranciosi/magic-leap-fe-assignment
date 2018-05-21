@@ -36,7 +36,8 @@ const Header = ({ siteTitle }: HeaderProps) => (
     <Container>
       <FlexContainer>
         <FlexContainer>
-          <Link href="/" prefetch>
+          {/* workaround for failing tests https://github.com/zeit/next.js/issues/1204 */}
+          <Link href="/" prefetch={process.env.NODE_ENV !== 'test'}>
             <AvatarLogo size={55} avatar="/static/images/Watto.png" />
           </Link>
           <Link href="/">

@@ -7,7 +7,7 @@ import {
   getCartCount,
   isProductInCart
 } from '../selectors';
-import { addToCart, removeFromCart } from '../actions';
+import { addToCart, removeFromCart, checkoutCart } from '../actions';
 
 const mapStateToProps = (state: AppState, props: any) => ({
   cart: state.cart,
@@ -19,6 +19,8 @@ const mapStateToProps = (state: AppState, props: any) => ({
 });
 
 const withCart = (Component: any) =>
-  connect(mapStateToProps, { addToCart, removeFromCart })(Component);
+  connect(mapStateToProps, { addToCart, removeFromCart, checkoutCart })(
+    Component
+  );
 
 export default withCart;

@@ -32,3 +32,7 @@ export const addToCart = (id: string, quantity: number = 1) => (
 
 export const removeFromCart = (id: string) => (dispatch: Dispatch) =>
   dispatch({ type: actionTypes.REMOVE_FROM_CART, payload: id });
+
+export const checkoutCart = () => (dispatch: Dispatch) => {
+  dispatch({ type: actionTypes.CHECKOUT_CART });
+};

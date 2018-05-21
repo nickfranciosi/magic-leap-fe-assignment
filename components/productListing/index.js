@@ -48,8 +48,13 @@ const Gradient = styled.div`
   }
 `;
 
+/* workaround for failing tests https://github.com/zeit/next.js/issues/1204 */
 export default ({ name }: Product) => (
-  <Link href={`/shop?name=${name}`} as={`/shop/${name}`}>
+  <Link
+    prefetch={process.env.NODE_ENV !== 'test'}
+    href={`/shop?name=${name}`}
+    as={`/shop/${name}`}
+  >
     <Wrapper src={name}>
       <Gradient />
       <Title>{name}</Title>

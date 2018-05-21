@@ -30,5 +30,12 @@ export default (state: any = [], action: any) => {
     return state.filter(i => i.id !== action.payload);
   }
 
+  // Since we aren't really buying anything
+  // I am just clearing out the cart when users decide
+  // to purchase the items in their cart
+  if (action.type === actionTypes.CHECKOUT_CART) {
+    return [];
+  }
+
   return state;
 };
