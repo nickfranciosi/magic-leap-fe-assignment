@@ -11,14 +11,9 @@ describe('ProductImage', () => {
     expect(tree).toMatchSnapshot();
   });
 
-  test('it should have have max-width', () => {
+  test('it should have min-height at mobile breakpoint', () => {
     const tree = renderer.create(<ProductImage />).toJSON();
-    expect(tree).toHaveStyleRule('max-width', `100%`);
-  });
-
-  test('it should be full width at mobile breakpoint', () => {
-    const tree = renderer.create(<ProductImage />).toJSON();
-    expect(tree).toHaveStyleRule('width', `100vw`, {
+    expect(tree).toHaveStyleRule('min-height', `250px`, {
       media: `(max-width:${breakpoints.tablet})`
     });
   });

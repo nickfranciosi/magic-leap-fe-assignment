@@ -2,19 +2,25 @@
 
 exports[`ProductImage it should render 1`] = `
 .c0 {
-  max-width: 100%;
-  width: 40vw;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  margin-left: 26px;
   height: auto;
   object-fit: cover;
+  background: url('') no-repeat;
+  background-position: center;
+  background-size: contain;
 }
 
 @media (max-width:768px) {
   .c0 {
-    width: 100vw;
+    min-height: 250px;
+    margin: 0 0 16px 0;
   }
 }
 
-<img
+<div
   className="c0"
 />
 `;

@@ -2,13 +2,17 @@
 import styled from 'styled-components';
 import breakpoints from '../../styles/breakpoints';
 
-const ProductImage = styled.img`
-  max-width: 100%;
-  width: 40vw;
+const ProductImage = styled.div`
+  flex: 1;
+  margin-left: 26px;
   height: auto;
   object-fit: cover;
+  background: url('${({ src }) => src}') no-repeat;
+  background-position: center;
+  background-size: contain;
   @media (max-width: ${breakpoints.tablet}) {
-    width: 100vw;
+   min-height: 250px;
+   margin: 0 0 16px 0;
   }
 `;
 

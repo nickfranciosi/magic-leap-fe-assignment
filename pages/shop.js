@@ -26,6 +26,9 @@ const ProductDetails = styled.section`
   font-family: ${fonts.fontFamilies.secondary};
 `;
 
+const DetailWrapper = styled.div`
+  flex: 1;
+`;
 const ProductTitle = styled(SubTitle)`
   margin-bottom: 32px;
 `;
@@ -77,26 +80,24 @@ class ShopPage extends Component<ShopPagePros, ShopPageState> {
     return (
       <Container>
         <FlexContainer>
-          <div>
-            <>
-              <ProductDetails>
-                <ProductTitle>{product.name}</ProductTitle>
-                {product.price ? (
-                  <>
-                    <ProductPrice>{product.price}</ProductPrice>
-                    <ConnectedCartActions
-                      product={product}
-                      handleQuantityChange={this.setQuantity}
-                      quantity={quantity}
-                    />
-                  </>
-                ) : (
-                  <UnavailableMessage>Currently Unavailble</UnavailableMessage>
-                )}
-              </ProductDetails>
-              <SpecList product={product} />
-            </>
-          </div>
+          <DetailWrapper>
+            <ProductDetails>
+              <ProductTitle>{product.name}</ProductTitle>
+              {product.price ? (
+                <>
+                  <ProductPrice>{product.price}</ProductPrice>
+                  <ConnectedCartActions
+                    product={product}
+                    handleQuantityChange={this.setQuantity}
+                    quantity={quantity}
+                  />
+                </>
+              ) : (
+                <UnavailableMessage>Currently Unavailble</UnavailableMessage>
+              )}
+            </ProductDetails>
+            <SpecList product={product} />
+          </DetailWrapper>
           <ProductImage src={`/static/images/products/${product.name}.jpg`} />
         </FlexContainer>
       </Container>
