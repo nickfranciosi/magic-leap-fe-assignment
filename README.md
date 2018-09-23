@@ -1,4 +1,4 @@
-# React/Recux Example store - Watto’s Spaceship Emporium
+# React/Redux Example store - Watto’s Spaceship Emporium
 
 This is a fake shop application (_Users can not actually purchase space ships :smirk:_) built to show my skills utilizing technologies such as React, Next, Redux, Styled Components, Express, Flow, and Jest.
 
