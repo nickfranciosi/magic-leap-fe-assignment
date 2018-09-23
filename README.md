@@ -1,4 +1,4 @@
-# Magic Leap Front End Assignment - Watto’s Spaceship Emporium
+# React/Recux Example store - Watto’s Spaceship Emporium
 
 This is a fake shop application (_Users can not actually purchase space ships :smirk:_) built to show my skills utilizing technologies such as React, Next, Redux, Styled Components, Express, Flow, and Jest.
 
@@ -81,13 +81,13 @@ This has been built and tested using Node v8.11.1
 
 Start by cloning the repository locally
 ```
-$ git clone git@github.com:nickfranciosi/magic-leap-fe-assignment.git
+$ git clone git@github.com:nickfranciosi/react-redux-example-store.git
 ```
-or you can download the ZIP directly [here](https://github.com/nickfranciosi/magic-leap-fe-assignment/archive/master.zip)
+or you can download the ZIP directly [here](https://github.com/nickfranciosi/react-redux-example-store/archive/master.zip)
 
 after the project is on your machine make sure to change to that directory
 ```
-$ cd magic-leap-fe-assignment
+$ cd react-redux-example-store
 ```
 
 Install all packages and dependencies
